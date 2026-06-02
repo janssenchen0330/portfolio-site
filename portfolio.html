@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳建勳 - 影片作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #4CC9D0;
+            --cyan-dark: #3BA8AE;
+            --green: #A8E84C;
+            --green-bright: #C6FF00;
+            --coral: #FF6B6B;
+            --coral-light: #FF8A80;
+            --salmon: #F4845F;
+            --black: #1A1A2E;
+            --dark: #16213E;
+            --white: #FAFAFA;
+            --yellow: #FFD93D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--cyan);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--cyan);
+            overflow: hidden;
+        }
+
+        /* Geometric decorations */
+        .geo {
+            position: absolute;
+            z-index: 0;
+        }
+
+        .geo-triangle-1 {
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 180px solid var(--coral);
+            border-right: 180px solid transparent;
+            border-top: 200px solid transparent;
+            border-bottom: 0;
+            transform: rotate(0deg);
+        }
+
+        .geo-triangle-2 {
+            bottom: 0;
+            left: 120px;
+            width: 0;
+            height: 0;
+            border-left: 140px solid var(--salmon);
+            border-right: 140px solid transparent;
+            border-top: 160px solid transparent;
+            border-bottom: 0;
+        }
+
+        .geo-big-green {
+            top: -80px;
+            right: -60px;
+            width: 400px;
+            height: 500px;
+            background: var(--green);
+            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 80%);
+        }
+
+        .geo-dark-triangle {
+            top: 0;
+            right: 80px;
+            width: 300px;
+            height: 400px;
+            background: var(--dark);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 70%);
+            opacity: 0.85;
+        }
+
+        .geo-speech {
+            top: 30px;
+            right: 40px;
+            width: 120px;
+            height: 90px;
+            background: var(--green-bright);
+            border-radius: 20px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: var(--black);
+            transform: rotate(5deg);
+        }
+
+        .geo-speech::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid var(--green-bright);
+            border-right: 10px solid transparent;
+            border-top: 20px solid var(--green-bright);
+            border-bottom: 10px solid transparent;
+        }
+
+        .geo-scissors {
+            top: 60px;
+            left: 60px;
+            font-size: 4rem;
+            transform: rotate(-30deg);
+            z-index: 1;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-logo {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--black);
+            text-shadow: 4px 4px 0 var(--green), -2px -2px 0 var(--green);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-logo span {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-logo .accent {
+            color: var(--coral);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--black);
+            background: rgba(255,255,255,0.25);
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-name {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            text-shadow: 2px 2px 0 var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-role {
+            font-size: 1.1rem;
+            color: var(--black);
+            font-weight: 700;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat {
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 1.8rem;
+            border-radius: 16px;
+            text-align: center;
+            min-width: 130px;
+            box-shadow: 4px 4px 0 var(--green);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--green-bright);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.2rem;
+        }
+
+        .hero-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 var(--green);
+        }
+
+        .hero-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 0 var(--green);
+            background: var(--dark);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            color: var(--black);
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ===== FILTER TABS ===== */
+        .filter-section {
+            background: var(--black);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.4rem;
+            border: 2px solid var(--cyan);
+            background: transparent;
+            color: var(--white);
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--cyan);
+            color: var(--black);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 201, 208, 0.4);
+        }
+
+        /* ===== WORKS GRID ===== */
+        .works-section {
+            background: var(--dark);
+            padding: 4rem 2rem;
+            min-height: 60vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--green);
+            margin: 0.8rem auto 0;
+            border-radius: 3px;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .work-card {
+            background: var(--black);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .work-card.hidden {
+            display: none;
+        }
+
+        .card-thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--coral);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .card-views-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.75);
+            color: var(--green-bright);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-body {
+            padding: 1.2rem 1.5rem 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .card-client {
+            font-size: 0.85rem;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-date {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--cyan);
+            color: var(--black);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .card-link:hover {
+            background: var(--green);
+            transform: scale(1.05);
+        }
+
+        .card-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .card-link-apple {
+            background: #9B59B6;
+            color: var(--white);
+        }
+
+        .card-link-apple:hover {
+            background: #8E44AD;
+            color: var(--white);
+        }
+
+        .card-link-spotify {
+            background: #1DB954;
+            color: var(--white);
+        }
+
+        .card-link-spotify:hover {
+            background: #1aa34a;
+            color: var(--white);
+        }
+
+        /* ===== PLAYLIST CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--green) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--coral);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 var(--coral);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 0 var(--coral);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-contact {
+            background: var(--coral);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .cta-btn-contact:hover {
+            box-shadow: 6px 6px 0 var(--black);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .hero-logo {
+                font-size: 2.8rem;
+            }
+            .hero-name {
+                font-size: 1.5rem;
+            }
+            .hero-role {
+                font-size: 1rem;
+            }
+            .hero-stats {
+                gap: 1rem;
+            }
+            .stat {
+                min-width: 100px;
+                padding: 0.8rem 1.2rem;
+            }
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            .hero-contact-btn {
+                font-size: 1rem;
+                padding: 0.7rem 1.6rem;
+            }
+            .works-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            .geo-big-green {
+                width: 200px;
+                height: 250px;
+            }
+            .geo-dark-triangle {
+                width: 150px;
+                height: 200px;
+            }
+            .geo-triangle-1 {
+                border-left-width: 100px;
+                border-right-width: 100px;
+                border-top-width: 120px;
+            }
+            .geo-triangle-2 {
+                border-left-width: 80px;
+                border-right-width: 80px;
+                border-top-width: 100px;
+                left: 60px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .filter-section {
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+            .cta-title {
+                font-size: 1.6rem;
+            }
+            .cta-buttons {
+                gap: 1rem;
+            }
+            .cta-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 100svh;
+                padding: 1rem;
+            }
+            .hero-content {
+                padding: 1rem;
+            }
+            .hero-logo {
+                font-size: 2rem;
+                text-shadow: 3px 3px 0 var(--green), -1px -1px 0 var(--green);
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0.3rem 1rem;
+            }
+            .hero-role {
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+            }
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            .stat {
+                min-width: 180px;
+                padding: 0.8rem 1.5rem;
+            }
+            .stat-number {
+                font-size: 1.6rem;
+            }
+            .hero-contact-btn {
+                font-size: 0.95rem;
+                padding: 0.7rem 1.5rem;
+                margin-top: 1.2rem;
+            }
+            .hero-email {
+                font-size: 0.95rem;
+            }
+            .geo-big-green {
+                width: 140px;
+                height: 180px;
+                top: -40px;
+                right: -30px;
+            }
+            .geo-dark-triangle {
+                width: 100px;
+                height: 140px;
+                right: 40px;
+            }
+            .geo-triangle-1 {
+                border-left-width: 70px;
+                border-right-width: 70px;
+                border-top-width: 80px;
+            }
+            .geo-triangle-2 {
+                border-left-width: 50px;
+                border-right-width: 50px;
+                border-top-width: 60px;
+                left: 40px;
+            }
+            .geo-scissors {
+                font-size: 2.5rem;
+                top: 30px;
+                left: 20px;
+            }
+            .geo-speech {
+                width: 80px;
+                height: 60px;
+                font-size: 1.1rem;
+                top: 15px;
+                right: 15px;
+            }
+            .filter-section {
+                padding: 0.8rem 0.5rem;
+                gap: 0.4rem;
+            }
+            .filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+                border-width: 1.5px;
+            }
+            .works-section {
+                padding: 2.5rem 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            .works-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .card-body {
+                padding: 1rem 1.2rem 1.2rem;
+            }
+            .card-title {
+                font-size: 1.05rem;
+            }
+            .cta-section {
+                padding: 3rem 1.5rem;
+            }
+            .cta-title {
+                font-size: 1.3rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .cta-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="geo geo-big-green"></div>
+        <div class="geo geo-dark-triangle"></div>
+        <div class="geo geo-triangle-1"></div>
+        <div class="geo geo-triangle-2"></div>
+        <div class="geo geo-scissors">&#9986;</div>
+
+        <div class="hero-content">
+            <h1 class="hero-logo">陳建勳 影片作品集</h1>
+            <p class="hero-role">企劃 / 演出 / 拍攝 / 剪輯 / 後製 / 動畫</p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">操刀剪輯影片</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1000萬+</div>
+                    <div class="stat-label">累計觀看</div>
+                </div>
+            </div>
+
+            <a class="hero-contact-btn" href="mailto:janssenchen0330@gmail.com">&#9993; 立即聯繫</a>
+        </div>
+
+        <div class="scroll-hint">&#9660;</div>
+    </section>
+
+    <!-- ===== FILTER ===== -->
+    <nav class="filter-section">
+        <button class="filter-btn active" data-filter="all">全部作品</button>
+        <button class="filter-btn" data-filter="短影片">短影片</button>
+        <button class="filter-btn" data-filter="遊戲精華">遊戲精華</button>
+        <button class="filter-btn" data-filter="綜藝／網路節目">綜藝／節目</button>
+        <button class="filter-btn" data-filter="戲劇">戲劇</button>
+        <button class="filter-btn" data-filter="After Effects 動畫">AE 動畫</button>
+        <button class="filter-btn" data-filter="Podcast">Podcast</button>
+    </nav>
+
+    <!-- ===== WORKS ===== -->
+    <section class="works-section">
+        <h2 class="section-title">作品展示</h2>
+        <div class="works-grid">
+
+            <!-- 1. 他到底什麼時候會發現？ 488萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/(2)_Instagram.jpg" alt="他到底什麼時候會發現？">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 696.2萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">他到底什麼時候會發現？</h3>
+                    <div class="card-client">韭點開始</div>
+                    <p class="card-desc">幽默短影片，由我擔任演出、後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2026.03.02</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DVQevPNCQ7X/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 壽司郎竟然有0元神秘商品？！ 278萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/(1)_Instagram 1.jpg" alt="壽司郎竟然有0元神秘商品？！">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 312.1萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">壽司郎竟然有0元神秘商品？！</h3>
+                    <div class="card-client">韭點開始</div>
+                    <p class="card-desc">日常短影片分享有趣事件，由我擔任演出與後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2026.02.09</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DUiAdSaEgVz/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 曠野之息 102萬 -->
+            <div class="work-card fade-in" data-type="遊戲精華">
+                <img class="card-thumbnail" src="images/maxresdefault.jpg" alt="你可以100%不用武器全破《曠野之息》嗎?">
+                <span class="card-badge">遊戲精華</span>
+                <span class="card-views-badge">&#9654; 103萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">你可以100%不用武器全破《曠野之息》嗎?</h3>
+                    <div class="card-client">遊戲皮卡嚕</div>
+                    <p class="card-desc">遊戲長片精華剪輯，由我濃縮時長超過33小時的直播原檔，並加上字卡與音效，以及許多讓觀眾感受到幽默的影片效果</p>
+                    <div class="card-meta">
+                        <span class="card-date">2023.05.07</span>
+                        <a class="card-link" href="https://youtu.be/n7tbnqhDZyU?si=jFYDEoPXsIMIqsuH" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 寶可夢 盾 隨機進化 78萬 -->
+            <div class="work-card fade-in" data-type="遊戲精華">
+                <img class="card-thumbnail" src="images/寶可夢盾隨機進化.jpg" alt="《寶可夢 盾》，但它們每升一級，就會隨機進化">
+                <span class="card-badge">遊戲精華</span>
+                <span class="card-views-badge">&#9654; 78萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">《寶可夢 盾》，但它們每升一級，就會隨機進化</h3>
+                    <div class="card-client">遊戲皮卡嚕</div>
+                    <p class="card-desc">遊戲長影片精華剪輯，由我整理並濃縮超過21小時的直播原檔，並加上字卡與音樂，呈現完好的影片節奏</p>
+                    <div class="card-meta">
+                        <span class="card-date">2025.07.25</span>
+                        <a class="card-link" href="https://youtu.be/39dJc49Sh9A?si=ojk8sIcX53Y9BXk6" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 身為盤子 101萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/Instagram.jpg" alt="身為盤子就應該要洗的乾乾淨淨的才對">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 101萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">身為盤子就應該要洗的乾乾淨淨的才對</h3>
+                    <div class="card-client">韭點開始</div>
+                    <p class="card-desc">趣味短影片，由我擔任演出與後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2025.07.01</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DLkOqGWK_p3/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 運動朋友 51.1萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/Instagram.png" alt="當你有一個聽到要運動就不行的朋友">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 51.1萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">當你有一個聽到要運動就不行的朋友</h3>
+                    <div class="card-client">NONE LAND</div>
+                    <p class="card-desc">爆紅短影音，由我擔任企劃發想、演出、後製剪輯，宣傳即將到來的運動會活動</p>
+                    <div class="card-meta">
+                        <span class="card-date">2024.11.15</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DCYt96shkhN/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 刮刮樂 42.9萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/(1)_Instagram 2.jpg" alt="刮刮樂前的神秘儀式">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 43.5萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">刮刮樂前的神秘儀式</h3>
+                    <div class="card-client">韭點開始</div>
+                    <p class="card-desc">業配合作短影片，透過趣味方式呈現介紹「時時抄經」app，由我擔任演出與後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2026.02.12</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DUqW7SqEiIn/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. 0能的挑戰 31.5萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/Instagram 1.jpg" alt="0能的挑戰">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 31.5萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">0能的挑戰</h3>
+                    <div class="card-client">NONE LAND</div>
+                    <p class="card-desc">跟上當時熱門的潮流，由我擔任企劃發想、演出、後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2024.10.22</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DBa636npsdc/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. 寶可夢 25萬 -->
+            <div class="work-card fade-in" data-type="遊戲精華">
+                <img class="card-thumbnail" src="images/LetsGO雙人抓寶挑戰.jpg" alt="你可以在倒數結束前，抓到寶可夢嗎？">
+                <span class="card-badge">遊戲精華</span>
+                <span class="card-views-badge">&#9654; 29萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">你可以在倒數結束前，抓到寶可夢嗎？</h3>
+                    <div class="card-client">遊戲皮卡嚕</div>
+                    <p class="card-desc">遊戲長片精華剪輯，初剪、特效、字卡與音效等皆由我獨立完成</p>
+                    <div class="card-meta">
+                        <span class="card-date">2025.12.05</span>
+                        <a class="card-link" href="https://youtu.be/V-vQuu3l2g0?si=rwp7VnX0qZrCwoH6" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 盤子男現場開箱Steam Controller 8.5萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/Steam Controller.jpg" alt="盤子男現場開箱Steam Controller">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 8.5萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">盤子男現場開箱Steam Controller</h3>
+                    <div class="card-client">盤子男</div>
+                    <p class="card-desc">3C用品體驗開箱，由我撰寫腳本、拍攝與出鏡，以及後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2026.05.08</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DYEoOwgSGPK/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. 台北早午餐 4.6萬 -->
+            <div class="work-card fade-in" data-type="短影片">
+                <img class="card-thumbnail" src="images/(1)_Instagram.jpg" alt="台北早午餐探店">
+                <span class="card-badge">短影片</span>
+                <span class="card-views-badge">&#9654; 4.6萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">台北早午餐探店</h3>
+                    <div class="card-client">丸子</div>
+                    <p class="card-desc">日常短影片探索好吃店家，由我擔任後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2026.02.25</span>
+                        <a class="card-link" href="https://www.instagram.com/reel/DVLmD7hAYvl/" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. 工商巨魔 4.1萬 -->
+            <div class="work-card fade-in" data-type="綜藝／網路節目">
+                <img class="card-thumbnail" src="images/6tan.jpg" alt="工商巨魔把投資當成手遊在玩？">
+                <span class="card-badge">綜藝／節目</span>
+                <span class="card-views-badge">&#9654; 4.1萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">工商巨魔把投資當成手遊在玩？</h3>
+                    <div class="card-client">NONE LAND</div>
+                    <p class="card-desc">網路金融節目《思維理融院》邀請到來賓6tan，擔任現場拍攝與後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2023.05.11</span>
+                        <a class="card-link" href="https://youtu.be/TvdEMT5P1Ds?si=yf4aCJ3keIBnY5SA" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 理財題目加點糖 1.2萬 -->
+            <div class="work-card fade-in" data-type="綜藝／網路節目">
+                <img class="card-thumbnail" src="images/統神.jpg" alt="理財題目加點糖｜阿舟金融題超級有邏輯?">
+                <span class="card-badge">綜藝／節目</span>
+                <span class="card-views-badge">&#9654; 1.2萬</span>
+                <div class="card-body">
+                    <h3 class="card-title">理財題目加點糖｜阿舟金融題超級有邏輯?</h3>
+                    <div class="card-client">NONE LAND</div>
+                    <p class="card-desc">網路金融節目《思維理融院》邀請到來賓統神，由我擔任現場拍攝與後製剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2023.04.20</span>
+                        <a class="card-link" href="https://youtu.be/xza34fJhAm0?si=W9Y28f2lXAwzxWpX" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. 吐槽劇場 2千 -->
+            <div class="work-card fade-in" data-type="戲劇">
+                <img class="card-thumbnail" src="images/sddefault_(1).jpg" alt="吐槽劇場－消夜殺手！">
+                <span class="card-badge">戲劇</span>
+                <span class="card-views-badge">&#9654; 2千</span>
+                <div class="card-body">
+                    <h3 class="card-title">吐槽劇場－消夜殺手！想吃不會自己買啊？</h3>
+                    <div class="card-client">張恩嬅</div>
+                    <p class="card-desc">幽默戲劇短片，由我擔任剪輯</p>
+                    <div class="card-meta">
+                        <span class="card-date">2022.02.05</span>
+                        <a class="card-link" href="https://youtu.be/CM6yeaQvOOY?si=xcwqGxLHOJqU-BN9" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. 訂閱浪鏈 AE動畫 -->
+            <div class="work-card fade-in" data-type="After Effects 動畫">
+                <img class="card-thumbnail" src="images/sddefault.jpg" alt="訂閱浪鏈 NONE LAND！">
+                <span class="card-badge">AE 動畫</span>
+                <div class="card-body">
+                    <h3 class="card-title">訂閱浪鏈 NONE LAND！</h3>
+                    <div class="card-client">NONE LAND</div>
+                    <p class="card-desc">Youtube頻道首頁的短片動畫，宣傳頻道風格與鼓勵訂閱</p>
+                    <div class="card-meta">
+                        <span class="card-date">2024.03.22</span>
+                        <a class="card-link" href="https://youtu.be/TBjNocePQbY?si=HUaqrYJBvDNkbvu9" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 遊戲頻道片頭動畫 AE動畫 -->
+            <div class="work-card fade-in" data-type="After Effects 動畫">
+                <img class="card-thumbnail" src="images/阿建Gaming_logo.png" alt="遊戲頻道片頭動畫">
+                <span class="card-badge">AE 動畫</span>
+                <div class="card-body">
+                    <h3 class="card-title">遊戲頻道片頭動畫</h3>
+                    <div class="card-client">阿建Gaming</div>
+                    <p class="card-desc">遊戲頻道片頭動畫，由我使用After Effects製作</p>
+                    <div class="card-meta">
+                        <span class="card-date">2021.05.16</span>
+                        <a class="card-link" href="https://youtu.be/GgozOWmBFvE" target="_blank">&#9654; 觀看</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. 光棍告解中心 Podcast -->
+            <div class="work-card fade-in" data-type="Podcast">
+                <img class="card-thumbnail" src="images/Podcast 光棍LOGO-1.png" alt="光棍告解中心Podcast">
+                <span class="card-badge">Podcast</span>
+                <div class="card-body">
+                    <h3 class="card-title">光棍告解中心Podcast</h3>
+                    <div class="card-client">光棍告解中心</div>
+                    <p class="card-desc">個人經營之Podcast節目，由我擔任談話、收音錄製、音檔剪輯、封面製作</p>
+                    <div class="card-meta">
+                        <span class="card-date">2022年至今</span>
+                        <div class="card-links">
+                            <a class="card-link card-link-apple" href="https://podcasts.apple.com/tw/podcast/%E5%85%89%E6%A3%8D%E5%91%8A%E8%A7%A3%E4%B8%AD%E5%BF%83/id1645970240" target="_blank">&#127822; Apple Podcast</a>
+                            <a class="card-link card-link-spotify" href="https://open.spotify.com/show/224gtu993TpEtHUSkfB1QD" target="_blank">&#127925; Spotify</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== PLAYLIST CTA ===== -->
+    <section class="cta-section">
+        <h2 class="cta-title">立刻打造屬於你的精選長短影片！</h2>
+        <p style="font-weight:700; color:var(--black); margin-bottom:1.5rem; opacity:0.8;">點擊下方按鈕了解更多</p>
+        <div class="cta-buttons">
+            <a class="cta-btn" href="https://youtube.com/playlist?list=PLn7Y01-L1JmYnK9SmDsNle4WKIigzeZgH&si=EsKJgMcAFziRq6gp" target="_blank">
+                &#9654; 觀看更多作品
+            </a>
+            <a class="cta-btn cta-btn-contact" href="mailto:janssenchen0330@gmail.com">
+                &#9993; 立即聯繫
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 陳建勳</p>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.work-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.type === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Scroll fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
