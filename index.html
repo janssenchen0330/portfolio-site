@@ -346,6 +346,7 @@
             aspect-ratio: 16/9;
             object-fit: cover;
             display: block;
+            cursor: pointer;
         }
 
         .card-badge {
@@ -1117,6 +1118,14 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Click thumbnail to open video link
+        document.querySelectorAll('.card-thumbnail').forEach(img => {
+            img.addEventListener('click', () => {
+                const link = img.closest('.work-card').querySelector('.card-link');
+                if (link) window.open(link.href, '_blank');
+            });
+        });
     </script>
 
 </body>
